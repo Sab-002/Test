@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Miro Lim - Portfolio</title>
+    <meta
+      name="description"
+      content="Simple portfolio site for a designer/developer with selected work and contact details."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="Jordan Lee home">
+          <span class="brand-mark">JL</span>
+          <span class="brand-text">Jordan Lee</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main id="home">
+        <section class="hero">
+          <p class="eyebrow">Designer / Developer</p>
+          <h1>
+            Building clean websites for brands that want clarity over noise.
+          </h1>
+          <p class="lead">
+            I design and build simple, fast pages for small businesses,
+            founders, and creative teams. My focus is structure, readability,
+            and polished details that do not depend on flashy trends.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#work">View work</a>
+            <a class="button button-secondary" href="#contact">Let’s talk</a>
+          </div>
+        </section>
+
+        <section class="stats" aria-label="Highlights">
+          <article>
+            <strong>12+</strong>
+            <span>sites launched</span>
+          </article>
+          <article>
+            <strong>3 days</strong>
+            <span>typical landing page turnaround</span>
+          </article>
+          <article>
+            <strong>100%</strong>
+            <span>responsive layouts</span>
+          </article>
+        </section>
+
+        <section class="content-grid" id="about">
+          <div class="panel intro-panel">
+            <p class="section-label">About</p>
+            <h2>Direct, practical, and easy to maintain.</h2>
+            <p>
+              I work best on small to medium sites where the goal is to
+              communicate clearly and ship quickly. The stack is usually plain
+              HTML, CSS, and a tiny amount of JavaScript when needed.
+            </p>
+          </div>
+
+          <div class="panel skill-panel">
+            <p class="section-label">Skills</p>
+            <ul class="tags">
+              <li>Brand sites</li>
+              <li>Landing pages</li>
+              <li>Responsive layouts</li>
+              <li>Front-end cleanup</li>
+              <li>Accessibility basics</li>
+              <li>Simple motion</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="work" id="work">
+          <div class="section-heading">
+            <p class="section-label">Selected Work</p>
+            <h2>Small projects with a clear point of view.</h2>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card">
+              <p class="project-kicker">01 / Brand refresh</p>
+              <h3>Studio North</h3>
+              <p>
+                Reworked the homepage hierarchy, tightened typography, and added
+                a calm editorial rhythm.
+              </p>
+            </article>
+
+            <article class="project-card">
+              <p class="project-kicker">02 / Product launch</p>
+              <h3>Field Notes</h3>
+              <p>
+                Created a simple launch page with clear calls to action and a
+                stronger visual narrative.
+              </p>
+            </article>
+
+            <article class="project-card">
+              <p class="project-kicker">03 / Portfolio</p>
+              <h3>Atelier Grid</h3>
+              <p>
+                Designed a compact portfolio for a photographer who needed the
+                work to stay front and center.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="contact panel" id="contact">
+          <p class="section-label">Contact</p>
+          <h2>Available for a focused project or a quick cleanup pass.</h2>
+          <p>
+            Email
+            <a href="mailto:hello@jordanlee.design">hello@jordanlee.design</a>
+            or send a note on
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer"
+              >LinkedIn</a
+            >.
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
