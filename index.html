@@ -69,13 +69,19 @@
 
           <div class="panel skill-panel">
             <p class="section-label">Skills</p>
-            <ul class="tags">
-              <li>Brand sites</li>
-              <li>Landing pages</li>
-              <li>Responsive layouts</li>
-              <li>Front-end cleanup</li>
-              <li>Accessibility basics</li>
-              <li>Simple motion</li>
+            <ul class="tags" id="skillsList">
+              <li data-skill="Brand sites" tabindex="0">Brand sites</li>
+              <li data-skill="Landing pages" tabindex="0">Landing pages</li>
+              <li data-skill="Responsive layouts" tabindex="0">
+                Responsive layouts
+              </li>
+              <li data-skill="Front-end cleanup" tabindex="0">
+                Front-end cleanup
+              </li>
+              <li data-skill="Accessibility basics" tabindex="0">
+                Accessibility basics
+              </li>
+              <li data-skill="Simple motion" tabindex="0">Simple motion</li>
             </ul>
           </div>
         </section>
@@ -129,6 +135,87 @@
           </p>
         </section>
       </main>
+      <!-- Skill modal -->
+      <div class="modal" id="skillModal" aria-hidden="true">
+        <div class="modal-overlay" data-close></div>
+        <div
+          class="modal-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="skillTitle"
+        >
+          <button class="modal-close" id="modalClose" aria-label="Close">
+            ✕
+          </button>
+          <h3 id="skillTitle">Skill</h3>
+          <p id="skillDesc">
+            Details about the selected skill will appear here.
+          </p>
+        </div>
+      </div>
     </div>
+    <script>
+      (function () {
+        const modal = document.getElementById("skillModal");
+        const title = document.getElementById("skillTitle");
+        const desc = document.getElementById("skillDesc");
+        const closeBtn = document.getElementById("modalClose");
+        let lastFocused = null;
+
+        function openModal(skill) {
+          lastFocused = document.activeElement;
+          title.textContent = skill;
+          desc.textContent =
+            'Details about "' +
+            skill +
+            '".\n\nTypically includes context, examples, and how I approach this skill.';
+          modal.setAttribute("aria-hidden", "false");
+          modal.classList.add("open");
+          closeBtn.focus();
+          document.addEventListener("keydown", handleKey);
+        }
+
+        function closeModal() {
+          modal.setAttribute("aria-hidden", "true");
+          modal.classList.remove("open");
+          document.removeEventListener("keydown", handleKey);
+          if (lastFocused && typeof lastFocused.focus === "function")
+            lastFocused.focus();
+        }
+
+        function handleKey(e) {
+          if (e.key === "Escape") closeModal();
+          if (e.key === "Tab") {
+            // simple focus trap: keep focus within close button
+            e.preventDefault();
+            closeBtn.focus();
+          }
+        }
+
+        document
+          .getElementById("skillsList")
+          .addEventListener("click", function (e) {
+            const li = e.target.closest("li[data-skill]");
+            if (!li) return;
+            openModal(li.getAttribute("data-skill"));
+          });
+
+        document
+          .getElementById("skillsList")
+          .addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              const li = e.target.closest("li[data-skill]");
+              if (!li) return;
+              e.preventDefault();
+              openModal(li.getAttribute("data-skill"));
+            }
+          });
+
+        closeBtn.addEventListener("click", closeModal);
+        modal
+          .querySelector("[data-close]")
+          .addEventListener("click", closeModal);
+      })();
+    </script>
   </body>
 </html>
